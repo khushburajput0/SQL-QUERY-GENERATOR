@@ -1,10 +1,10 @@
 from services.schema_reader import get_database_schema
 from services.groq_service import client
 
-def generate_alternative_queries(user_prompt):
+def generate_alternative_queries(user_prompt, database_url=None):
 
     
-    schema = get_database_schema()
+    schema = get_database_schema(database_url)
 
     prompt = f"""
         Database Schema:

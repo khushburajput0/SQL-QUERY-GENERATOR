@@ -1,9 +1,9 @@
 from services.groq_service import client
 from services.schema_reader import get_database_schema
 
-def explain_query(sql_query):
+def explain_query(sql_query, database_url=None):
 
-    schema = get_database_schema()
+    schema = get_database_schema(database_url)
 
     prompt = f"""
     Database Schema:

@@ -1,39 +1,27 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 function Navbar() {
-
   return (
+    <nav className="navbar">
+      <NavLink to="/" className="brand-link">
+        <span className="brand-mark">SQL</span>
+        <span>Query Generator</span>
+      </NavLink>
 
-    <nav
-      style={{
-        background: "#1e293b",
-        padding: "15px"
-      }}
-    >
+      <div className="nav-links">
+        <NavLink to="/home" className="nav-link">
+          Home
+        </NavLink>
 
-      <Link
-        to="/"
-        style={{
-          color: "white",
-          marginRight: "20px",
-          textDecoration: "none"
-        }}
-      >
-        Home
-      </Link>
+        <NavLink to="/prompt" className="nav-link">
+          Prompt
+        </NavLink>
 
-      <Link
-        to="/history"
-        style={{
-          color: "white",
-          textDecoration: "none"
-        }}
-      >
-        History
-      </Link>
-
+        <NavLink to="/history" className="nav-link">
+          History
+        </NavLink>
+      </div>
     </nav>
-
   );
 }
 

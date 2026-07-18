@@ -11,7 +11,7 @@ DB_NAME = os.getenv("DB_NAME")
 DB_USER = os.getenv("DB_USER")
 
 # Encode special characters in password
-DB_PASSWORD = quote_plus(os.getenv("DB_PASSWORD"))
+DB_PASSWORD = quote_plus(os.getenv("DB_PASSWORD", ""))
 
 DATABASE_URL = (
     f"postgresql://{DB_USER}:{DB_PASSWORD}"
@@ -19,3 +19,10 @@ DATABASE_URL = (
 )
 
 engine = create_engine(DATABASE_URL)
+
+
+def get_engine(database_url=None):
+    if database_url:
+        return create_engine(database_url)
+
+    return engine

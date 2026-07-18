@@ -1,10 +1,11 @@
 from sqlalchemy import text
-from database.db import engine
+from database.db import get_engine
 
 
-def analyze_query(sql_query):
+def analyze_query(sql_query, database_url=None):
 
     try:
+        engine = get_engine(database_url)
 
         sql_query = sql_query.strip()
 
